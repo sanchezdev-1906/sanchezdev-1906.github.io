@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escribir</title>
+    <link rel="shortcut icon" href="/Proyecto-Integrador-Programacion-Web-I/favicon.png" type="image/png">
+    <link rel="icon" href="/Proyecto-Integrador-Programacion-Web-I/favicon.png" type="image/png">
+    <link rel="stylesheet" href="./write.css">
+    <base href="/Proyecto-Integrador-Programacion-Web-I/Proyecto-Integrador-Programacion-Web-I/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <main>
+        <form id="edit" class="editform" novalidate>
+            <fieldset class="fieldimage">
+                <label id="inputfile">
+                    <img src="" id="previewimage" class="hidden">
+                    <p class="btn btn--secondary">
+                        Agregar imagen de portada
+                    </p>
+                    <input type="file" name="image" id="inputimage">
+                </label>
+                <p class="message"></p>
+            </fieldset>
+            <fieldset class="fieldtitle">
+                <input class="title" required type="text" placeholder="Titulo del articulo aqui" name="title">
+                <p class="message"></p>
+            </fieldset>
+            <fieldset class="fieldtags">
+                <input class="tags" type="text" placeholder="Agrega etiquetas aqui" name="tags">
+                <p class="message"></p>
+            </fieldset>
+            <div class="editor">
+                <div class="buttons">
+                    <button class="button button-bold">
+                        <i class="fa-solid fa-bold"></i>
+                    </button>
+                    <button class="button button-italic">
+                        <i class="fa-solid fa-italic"></i>
+                    </button>
+                    <button class="button button-link">
+                        <i class="fa-solid fa-link"></i>
+                    </button>
+                    <button class="button button-ol">
+                        <i class="fa-solid fa-list-ol"></i>
+                    </button>
+                    <button class="button button-ul">
+                        <i class="fa-solid fa-list-ul"></i>
+                    </button>
+                    <button class="button button-h">
+                        <i class="fa-solid fa-heading"></i>
+                    </button>
+                </div>
+                <textarea required placeholder="Escribe el contenido de tu articulo aquí" name="content" id="content"
+                    rows="10"></textarea>
+                <p class="message"></p>
+            </div>
+            <button type="submit" class="btn btn--primary">Publicar</button>
+        </form>
+
+        <div class="leas">
+
+        </div>
+    </main>
+    <script src="/Proyecto-Integrador-Programacion-Web-I/scripts/jquery.js"></script>
+    <script src="/Proyecto-Integrador-Programacion-Web-I/scripts/base.js"></script>
+    <script src="./write.js"></script>
+</body>
+
+</html>

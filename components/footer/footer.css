@@ -1,0 +1,24 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  height: max-content;
+  padding: 1em;
+  background-color: var(--storm);
+  color: var(--text-c-light);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.social .social__item {
+  font-size: 30px;
+  text-decoration: none;
+  color: currentColor;
+}
+.social .social__item:hover {
+  color: var(--majorelle);
+}

@@ -1,0 +1,19 @@
+:root {
+  --light: #ffffff;
+
+  --majorelle: hsl(247, 66%, 60%);
+  --majorelle-90: hsl(247, 66%, 65%);
+  --majorelle-80: hsl(247, 66%, 70%);
+
+  --storm: #3a3961;
+  --ice: #2fe2de;
+  --pantone: #E5E894x;
+  --ruby: #d51454;
+
+  --text-c-dark: #333333;
+  --text-c-light: #ffffff;
+
+  --input-dark: #33333366;
+  --input-light: #dddddd66;
+  --input-focus: #6150db;
+}

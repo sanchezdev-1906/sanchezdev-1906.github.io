@@ -1,0 +1,7 @@
+@import url("./styles/base.css");
+@import url("./styles/variables.css");
+
+body {
+  font-family: Inter;
+  font-weight: 500;
+}

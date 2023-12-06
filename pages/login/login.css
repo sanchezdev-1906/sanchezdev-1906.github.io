@@ -1,0 +1,45 @@
+@import url("../../styles/variables.css");
+@import url("../../styles/base.css");
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("/assets/shapes/ruby.svg"),
+    url("/assets/shapes/storm.svg"), url("/assets/shapes/ice.svg"),
+    url("/assets/shapes/pantone.svg"), url("/assets/shapes/ruby.svg"),
+    linear-gradient(135deg, var(--majorelle) 0%, var(--storm) 100%);
+  background-repeat: no-repeat;
+  background-size: 25vmax, 20vmax, 20vmax, 30vmax, 20vmax, 100%;
+  background-position: -10% -10%, 80% 10%, -10% 70%, 40% 110%, 110% 50%, 0 0;
+}
+
+.form {
+  display: grid;
+  gap: 1em;
+  padding: 1em;
+  width: 90%;
+  max-width: 500px;
+
+  border-radius: 1em;
+
+  background-color: var(--light);
+}
+.form .hidden,
+.form.hidden {
+  display: none;
+}
+
+.form h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--storm);
+}
+.form input {
+  padding: 1rem;
+  font-size: 1em;
+}
+.form button {
+  padding: 1rem;
+  font-size: 1em;
+}

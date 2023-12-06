@@ -14,16 +14,16 @@ async function renderCards(){
   let cards = await getCardData();
   
   cards.forEach((card) => {
-    const cardDiv = document.createElement("div");
-    cardDiv.classList.add("card");
+    const cardArticle = document.createElement("article");
+    cardArticle.classList.add("card");
 
-      const cardHeader = document.createElement("div");
+      const cardHeader = document.createElement("header");
       cardHeader.classList.add("card__header");
         const layer = document.createElement("img");
         layer.classList.add("layer");
         layer.setAttribute("src", card.image);
         cardHeader.append(layer);
-      cardDiv.append(cardHeader);
+      cardArticle.append(cardHeader);
 
       const cardContent = document.createElement("div");
       cardContent.classList.add("card__text");
@@ -31,9 +31,9 @@ async function renderCards(){
         cardTitle.classList.add("card__title");
         cardTitle.textContent = card.title;
         cardContent.append(cardTitle);
-      cardDiv.append(cardContent);
+      cardArticle.append(cardContent);
 
-        const cardLinks = document.createElement("div");
+        const cardLinks = document.createElement("nav");
         cardLinks.classList.add("card__links");
           const liveDemo =document.createElement("div");
           liveDemo.classList.add("button", "button--link");
@@ -54,7 +54,7 @@ async function renderCards(){
           cardLinks.append(github);
         cardContent.append(cardLinks);        
 
-    cardsContainer.append(cardDiv);
+    cardsContainer.append(cardArticle);
   });
 
 }
