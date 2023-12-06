@@ -58,28 +58,33 @@ request.onupgradeneeded = ()=>{
 
 let offsetPage = 0
 
-addEventListener("load",()=>{
-    let request = indexedDB.open("dover", 1)
-    request.onerror = function(event) {
-        console.log("Error al abrir la base de datos");
-      };
-    request.onsuccess = ()=>{
-        let db = request.result
-        getArticles(db, 5,offsetPage, (items) =>{
-            items.forEach(element => {
-                console.log(element);
-            });
-        })
-    }
-})
-
-function getArticles(db, n, offset, callback) {
+addEventListener("load", () => {
+    let request = indexedDB.open("dover", 1);
+  
+    request.onerror = function (event) {
+      console.log("Error al abrir la base de datos");
+    };
+  
+    request.onsuccess = () => {
+      let db = request.result;
+  
+      getArticles(db, 5, offsetPage, (items) => {
+          console.log(items);
+        items.forEach((element) => {
+        });
+      });
+    };
+  });
+  
+  function getArticles(db, n, offset, callback) {
     let transaction = db.transaction("articles", "readonly");
     let objectStore = transaction.objectStore("articles");
     let result = [];
     let count = 0;
-
-    objectStore.openCursor(null, "prev").onsuccess = function(event) {
+  
+    let cursorRequest = objectStore.openCursor(null, "prev");
+  
+    cursorRequest.onsuccess = function (event) {
       let cursor = event.target.result;
   
       while (cursor && (offset > 0 || count < n)) {
@@ -91,8 +96,13 @@ function getArticles(db, n, offset, callback) {
         }
         cursor = cursor.continue();
       }
-      if (!cursor && count > 0) {
-        callback(result.reverse()); 
+  
+      if (!cursor || count >= n) {
+        callback(result.reverse());
       }
-    }
+    };
+  
+    cursorRequest.onerror = function (event) {
+      console.log("Error al abrir el cursor");
+    };
   }
