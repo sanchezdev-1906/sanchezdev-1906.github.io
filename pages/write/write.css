@@ -3,6 +3,7 @@
 
 .editform {
   max-width: 80ch;
+  width: 90%;
   margin: 0 auto;
   padding: 1em;
 }
