@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <base href="/Proyecto-Integrador-Programacion-Web-I/">
     <link rel="stylesheet" href="login.css">
     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
 </head>
@@ -15,19 +14,21 @@
         <h2>Iniciar Sesión</h2>
         <p>Al registrarte podrás escribir articulos, comentar y publicar productos</p>
         <input required type="text" name="username" id="loguser" placeholder="Correo/Usuario">
-        <input required type="password" name="username" id="loguser" placeholder="Contraseña">
+        <input required type="password" name="password" id="logpass" placeholder="Contraseña">
         <p>¿Aún no tienes una cuenta? Créala <a href="./index.html?action=sign">aquí</a></p>
-        <p id="messagelog" class="hidden"></p>
+        <p class="message hidden"></p>
         <button type="submit" class="btn btn--primary">Ingresar</button>
     </form>
+
     <form class="form sign hidden" id="sign">
         <h2>Registrarse</h2>
         <p>Al registrarte podrás escribir articulos, comentar y publicar productos</p>
-        <input required type="text" name="username" id="signuser" placeholder="Ingresa tu correo/usuario">
+        <input required type="email" name="email" id="signemail" placeholder="Ingresa un correo">
+        <input required type="text" name="username" id="signusername" placeholder="Ingresa un nombre usuario">
         <input required type="password" name="password" id="signpassword" placeholder="Ingresa una contraseña">
         <input required type="password" name="confirm" id="signconfirm" placeholder="Confirma tu contraseña">
         <p>¿Ya tienes una cuenta? Inicia sesión <a href="./index.html?action=login">aquí</a></p>
-        <p id="messagesign" class="hidden"></p>
+        <p class="hidden message"></p>
         <button type="submit" class="btn btn--primary">Registrarse</button>
     </form>
     <script src="/scripts/jquery.js"></script>

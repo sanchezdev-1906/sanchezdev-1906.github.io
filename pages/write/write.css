@@ -1,0 +1,93 @@
+@import url("/styles/base.css");
+@import url("/styles/variables.css");
+
+.editform {
+  max-width: 80ch;
+  margin: 0 auto;
+  padding: 1em;
+}
+.formfield > * {
+  display: inline-block;
+}
+.formfield,
+.editform {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 1fr;
+}
+.editor .buttons {
+  display: flex;
+  margin-bottom: 0.5em;
+}
+.editor .button {
+  width: 2.5em;
+  height: 2.5em;
+  font-size: 16px;
+  padding: 0.5em;
+  background-color: transparent;
+  border: none;
+
+  transition: background-color 0.1s;
+}
+
+.editor .button:hover {
+  background-color: var(--majorelle-t);
+}
+
+.editform .title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.editform .tags {
+  font-size: 0.9rem;
+}
+
+input[type="file"] {
+  display: none;
+}
+#inputfile {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+fieldset {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/** Advertencias */
+
+.editor.warning textarea {
+  border-color: var(--ruby);
+}
+fieldset .message,
+.editor .message {
+  display: none;
+  padding-top: 0.3em;
+  font-size: 0.9em;
+}
+fieldset.warning input {
+  border: solid 2px var(--ruby);
+}
+fieldset.warning .message,
+.editor.warning .message {
+  display: block;
+  color: var(--ruby);
+}
+fieldset.warning .btn {
+  color: var(--ruby);
+  border-color: var(--ruby);
+}
+fieldset.warning .btn:hover {
+  color: var(--ruby);
+}
+
+fieldset img {
+  display: block;
+  padding: 1em;
+  margin: 0 auto;
+  max-width: 500px;
+  max-height: 400px;
+}

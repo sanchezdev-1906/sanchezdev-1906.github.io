@@ -55,3 +55,36 @@ request.onupgradeneeded = ()=>{
     )
     
 }
+
+let offsetPage = 0
+
+addEventListener("load",()=>{
+    let request = indexedDB.open("dover", 1)
+    request.onerror = function(event) {
+        console.log("Error al abrir la base de datos");
+      };
+    request.onsuccess = ()=>{
+        let db = request.result
+        getArticles(db, "articles")
+    }
+})
+
+function getArticles(db, quantity, offset, callback) {
+    let transaction = db.transaction("articles", "readonly");
+    let objectStore = transaction.objectStore("articles");
+    let result = [];
+
+    objectStore.openCursor(null, "prev").onsuccess = function(event) {
+      let cursor = event.target.result;
+  
+      while (cursor && (offset > 0 || result.length < n)) {
+        if (offset > 0) {
+          offset--;
+        } else {
+          result.push(cursor.value);
+        }
+        cursor = cursor.continue();
+      }
+        callback(result.reverse()); 
+      }
+  }

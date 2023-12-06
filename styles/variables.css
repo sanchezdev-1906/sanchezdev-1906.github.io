@@ -4,6 +4,7 @@
   --majorelle: hsl(247, 66%, 60%);
   --majorelle-90: hsl(247, 66%, 65%);
   --majorelle-80: hsl(247, 66%, 70%);
+  --majorelle-t: hsla(247, 66%, 60%, 0.2);
 
   --storm: #3a3961;
   --ice: #2fe2de;
