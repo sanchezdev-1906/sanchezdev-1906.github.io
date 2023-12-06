@@ -65,26 +65,34 @@ addEventListener("load",()=>{
       };
     request.onsuccess = ()=>{
         let db = request.result
-        getArticles(db, "articles")
+        getArticles(db, 5,offsetPage, (items) =>{
+            items.forEach(element => {
+                console.log(element);
+            });
+        })
     }
 })
 
-function getArticles(db, quantity, offset, callback) {
+function getArticles(db, n, offset, callback) {
     let transaction = db.transaction("articles", "readonly");
     let objectStore = transaction.objectStore("articles");
     let result = [];
+    let count = 0;
 
     objectStore.openCursor(null, "prev").onsuccess = function(event) {
       let cursor = event.target.result;
   
-      while (cursor && (offset > 0 || result.length < n)) {
+      while (cursor && (offset > 0 || count < n)) {
         if (offset > 0) {
           offset--;
         } else {
           result.push(cursor.value);
+          count++;
         }
         cursor = cursor.continue();
       }
+      if (!cursor && count > 0) {
         callback(result.reverse()); 
       }
+    }
   }
