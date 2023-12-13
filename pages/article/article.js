@@ -27,7 +27,10 @@ addEventListener("load",()=>{
         container.querySelector(".user__username").textContent = user.username
       }
     }
-
   }
+})
+
+$(".add-comment").on("submit",(e)=>{
+  e.preventDefault()
   
 })

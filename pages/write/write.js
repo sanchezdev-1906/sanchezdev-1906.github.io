@@ -7,6 +7,12 @@ $(".editor button").on("click",(e)=>{
   e.preventDefault()
 })
 
+addEventListener("load", ()=>{
+  if (!localStorage.getItem("localuser")) {
+    location.replace("/")
+  }
+})
+
 $("form").on("submit",(e)=>{
   e.preventDefault()
   let validForm = true
@@ -134,7 +140,6 @@ $(".button-italic").on("click",()=>{
   insertTextAtCursor(editor, newText);
 })
 
-// Deshacer un cambio
 $(document).on("keydown",(e)=>{
   if ((e.ctrlKey || e.metaKey) && e.key === 'z') {
     e.preventDefault();
@@ -144,15 +149,6 @@ $(document).on("keydown",(e)=>{
     }
   }
 })
-/* $(document).on("keydown",(e)=>{
-  if ((e.ctrlKey || e.metaKey) && e.key === 'z') {
-    e.preventDefault();
-    if (historial.length > 1 && historial.length) {
-      historial.pop(); // TODO
-      textarea.value = historial[historial.length - 1];
-    }
-  }
-}) */
 
 function getSelectedTextOrWord(textarea) {
   let text = textarea.value;

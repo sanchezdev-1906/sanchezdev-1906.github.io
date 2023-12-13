@@ -35,8 +35,20 @@ addEventListener("load", () => {
     if (user) {
       likes = await getLikes(user.username)
     }
-
+    if (!likes && user) {
+      let request = indexedDB.open(DBData.name, DBData.version);
+  
+        request.onsuccess = function () {
+            let db = request.result;
+            let transaction = db.transaction("likes", "readwrite");
+            let objectStore = transaction.objectStore("likes");
+  
+            objectStore.put({user: user.username, likes:[]});
+          }
+      likes = {user: user.username, likes:[]}
+    }
     let fragment = document.createDocumentFragment()
+    
     items.forEach((item) => 
     {
       if (user && likes.likes.includes(item.id)) {
@@ -49,46 +61,46 @@ addEventListener("load", () => {
     articlesContainer.append(fragment)
     offset += 5
     if (offset >= total) $("#loadContent").addClass("hidden")
-
-    
-  });
+  })
 });
 
 function putLike(action, articleid){
-  let request = indexedDB.open(DBData.name, DBData.version);
-
-  request.onsuccess = function () {
-      let db = request.result;
-      let transaction = db.transaction(["likes","articles"], "readwrite");
-      let likesStore = transaction.objectStore("likes");
-      let articlesStore = transaction.objectStore("articles");
-      if (action == "like") {
-        articlesStore.get(articleid).onsuccess = function (event) {
-          let item = event.target.result
-          item.likes += 1
-          articlesStore.put(item)
-        }
-        likesStore.get(user.username).onsuccess = function (event) {
-          let item = event.target.result
-          item.likes.push(articleid)
-          likesStore.put(item)
-        }
-      }
-      else if (action == "unlike") {
-        articlesStore.get(articleid).onsuccess = function (event) {
-          let item = event.target.result
-          item.likes -= 1
-          articlesStore.put(item)
-        }
-        likesStore.get(user.username).onsuccess = function (event) {
-          let item = event.target.result
-          let index = item.likes.indexOf(articleid);
-          if (index != -1) {
-            item.likes.splice(index,1)
+  if (localStorage.getItem("localuser")) {
+    let request = indexedDB.open(DBData.name, DBData.version);
+  
+    request.onsuccess = function () {
+        let db = request.result;
+        let transaction = db.transaction(["likes","articles"], "readwrite");
+        let likesStore = transaction.objectStore("likes");
+        let articlesStore = transaction.objectStore("articles");
+        if (action == "like") {
+          articlesStore.get(articleid).onsuccess = function (event) {
+            let item = event.target.result
+            item.likes += 1
+            articlesStore.put(item)
+          }
+          likesStore.get(user.username).onsuccess = function (event) {
+            let item = event.target.result
+            item.likes.push(articleid)
             likesStore.put(item)
           }
         }
-      }
+        else if (action == "unlike") {
+          articlesStore.get(articleid).onsuccess = function (event) {
+            let item = event.target.result
+            item.likes -= 1
+            articlesStore.put(item)
+          }
+          likesStore.get(user.username).onsuccess = function (event) {
+            let item = event.target.result
+            let index = item.likes.indexOf(articleid);
+            if (index != -1) {
+              item.likes.splice(index,1)
+              likesStore.put(item)
+            }
+          }
+        }
+    }
   };
 }
   

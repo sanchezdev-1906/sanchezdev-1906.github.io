@@ -105,6 +105,7 @@
 }
 .header nav .buttons > * {
   flex-grow: 1;
+  width: max-content;
 }
 .toggle-header {
   justify-content: center;
@@ -126,9 +127,13 @@
   cursor: pointer;
   color: var(--storm);
 }
+.header .user.hidden {
+  display: none;
+}
 .header .user .user__img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100vmax;
 }
 .header .user:hover {
   text-decoration: underline;

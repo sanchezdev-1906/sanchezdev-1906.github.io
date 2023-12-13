@@ -7,7 +7,7 @@
     <title>Dover</title>
     <link rel="shortcut icon" href="/favicon.png" type="image/png">
     <link rel="icon" href="/favicon.png" type="image/png">
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="./user.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,7 +15,42 @@
 
 <body>
     <main>
-
+        <section class="info">
+            <img src="" alt="" class="user__img">
+            <h2 class="user__username"></h2>
+            <p class="user__description"></p>
+            <p class="user__email"></p>
+            <p class="user__email"></p>
+        </section>
+        <form class="form--edit">
+            <h2>Usuario</h2>
+            <label class="flex-c">
+                Usuario:
+                <input disabled placeholder="Nombre de usuario" name="username" type="text">
+            </label>
+            <label class="flex-c">
+                Descripción:
+                <textarea placeholder="Descripción" name="description" type="text"></textarea>
+            </label>
+            <label class="flex-c">
+                Correo:
+                <input placeholder="Correo" name="email" type="email">
+            </label>
+            <label class="flex-c">
+                Contraseña:
+                <input placeholder="Contraseña" name="password" type="password">
+            </label>
+            <label class="flex-r">
+                Ver contraseña
+                <input type="checkbox" name="view">
+            </label>
+            <label class="flex-c">
+                Imagen:
+                <input name="img" type="file">
+                <img class="hidden">
+            </label>
+            <button type="submit" class="btn btn--primary">Guardar Información</button>
+        </form>
     </main>
     <script src="/scripts/jquery.js"></script>
     <script type="module" src="/scripts/base.js"></script>

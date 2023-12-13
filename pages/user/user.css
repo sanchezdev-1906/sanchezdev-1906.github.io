@@ -1,0 +1,49 @@
+@import url("/styles/variables.css");
+@import url("/styles/base.css");
+main {
+  width: 90%;
+  max-width: 80ch;
+  margin: 1em auto;
+}
+
+.form--edit {
+  background-color: white;
+  display: grid;
+  gap: 1em;
+  padding: 1em;
+  border-radius: 0.5em;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form--edit label {
+  display: flex;
+  gap: 0.5em;
+}
+.form--edit .flex-c {
+  flex-direction: column;
+}
+.form--edit .flex-r {
+  flex-direction: row;
+  font-size: 14px;
+}
+.form--edit button {
+  padding: 1em;
+}
+
+.form--edit textarea {
+  height: 15ch;
+}
+
+.form--edit .flex-c img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 100vmax;
+}
+.form--edit .flex-c img.hidden {
+  display: none;
+}
+
+.form--edit.hidden {
+  display: none;
+}

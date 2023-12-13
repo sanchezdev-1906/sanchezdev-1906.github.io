@@ -38,13 +38,13 @@ export default function Article(info, onlike , liked=false){
         let hicon = article.querySelector(".article__likes .fa-heart")
         let hnumber = article.querySelector(".article__likes .number")
         let n = parseInt(hnumber.textContent)
-
-        if (hicon.classList.contains("fa-regular")) {
+        let isuser = localStorage.getItem("localuser")
+        if (hicon.classList.contains("fa-regular") && isuser) {
             onlike("like", info.id)
             hicon.classList.replace("fa-regular", "fa-solid")
             hnumber.textContent = n+1
         }
-        else {
+        else if (isuser){
             onlike("unlike", info.id)
             hicon.classList.replace("fa-solid", "fa-regular")
             hnumber.textContent = n-1

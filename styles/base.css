@@ -83,6 +83,7 @@ img {
   background-color: var(--majorelle-90);
 }
 .btn.btn--secondary {
+  background-color: var(--text-c-light);
   color: var(--majorelle);
   border: var(--majorelle-90) 2px solid;
 }

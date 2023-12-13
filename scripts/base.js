@@ -23,16 +23,28 @@ document.addEventListener("DOMContentLoaded",()=>{
                 $("#loginButtons").html(
                 `
                     <a href="/pages/write/" class="btn btn--secondary">Escribir</a>
+                    <a href="#" id="logout" class="btn btn--secondary">Cerrar Sesión</a>
                 `)
 
-                $(".header .user__img")[0].src = `${user.profile?user.profile:"/assets/img/default-user.png"}`
+                $(".header .user__img")[0].src = `${user.img?user.img:"/assets/img/default-user.png"}`
                 $(".header .user__username")[0].textContent = `${user.username}`
                 $(".header .user__email")[0].textContent = `${user.email}`
                 
                 $(".header .user").on("click", ()=>{
                     location.href = "/pages/user/"
                 })
-
+                $(".header #logout").on("click", ()=>{
+                    localStorage.removeItem("localuser")
+                    location.reload()
+                })
+            }
+            else{
+                $("#loginButtons").html(
+                    `
+                    <a href="/pages/login/index.html?action=login" class="btn btn--primary">Ingresar</a>
+                    <a href="/pages/login/index.html?action=sign" class="btn btn--secondary">Registrarse</a>
+                `)
+                $(".header .user").addClass("hidden")
             }
         })
     
