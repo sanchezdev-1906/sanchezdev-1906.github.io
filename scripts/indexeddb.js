@@ -1,6 +1,6 @@
 export const DBData = {
     name: "dover",
-    version: 1
+    version: 2
 }
 export const initial = indexedDB.open(DBData.name, DBData.version)
 
