@@ -1,0 +1,89 @@
+@import url("/styles/variables.css");
+@import url("/styles/base.css");
+
+.article-container {
+  background-color: white;
+  max-width: 80ch;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1em 1em;
+}
+.article__title {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.article__userinfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.5em;
+}
+.article__info {
+  margin-bottom: 0.5em;
+}
+
+.user__img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+.user__username {
+  font-size: 18px;
+}
+
+.article__content * {
+  margin-bottom: 0.5em;
+}
+.article__content h1,
+.article__content h2,
+.article__content h3,
+.article__content h4 {
+  font-weight: 600;
+}
+.article__content h1,
+.article__content h2 {
+  font-size: 25px;
+}
+.article__content h3 {
+  font-size: 22px;
+}
+.article__content h4 {
+  font-size: 20px;
+}
+.article__content p {
+  font-size: 16px;
+}
+.article__content blockquote {
+  font-size: 15px;
+  line-height: 125%;
+  margin: 1em 2em;
+}
+.article__content q {
+  font-size: 15px;
+}
+.article__content ul,
+.article__content ol {
+  margin: 1em 2em;
+  padding: 0;
+  list-style: "✅ ";
+}
+.article__content a {
+  color: var(--majorelle);
+}
+.article__content a:hover {
+  text-decoration: underline;
+}
+.article__content ol {
+  list-style: decimal;
+}
+.article__content ul li,
+.article__content ol li {
+  margin-bottom: 0.5em;
+}
+
+.article__content b {
+  color: var(--ruby);
+}
+.article__content i {
+  font-style: italic;
+}

@@ -1,3 +1,4 @@
+import { initial, DBData } from "/scripts/indexeddb.js";
 document.addEventListener("DOMContentLoaded",()=>{
     fetch('/components/header/header.html')
           .then(response => response.text())
@@ -18,10 +19,20 @@ document.addEventListener("DOMContentLoaded",()=>{
                 }
             })
             if (localStorage.getItem("localuser")) {
+                let user = JSON.parse(localStorage.getItem("localuser"))
                 $("#loginButtons").html(
                 `
                     <a href="/pages/write/" class="btn btn--secondary">Escribir</a>
                 `)
+
+                $(".header .user__img")[0].src = `${user.profile?user.profile:"/assets/img/default-user.png"}`
+                $(".header .user__username")[0].textContent = `${user.username}`
+                $(".header .user__email")[0].textContent = `${user.email}`
+                
+                $(".header .user").on("click", ()=>{
+                    location.href = "/pages/user/"
+                })
+
             }
         })
     

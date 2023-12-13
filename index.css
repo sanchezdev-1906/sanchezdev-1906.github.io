@@ -1,5 +1,29 @@
 @import url("/styles/variables.css");
 @import url("/styles/base.css");
-.btn {
-  margin: 1em;
+@import url("/components/Article.css");
+main {
+  width: 90%;
+  max-width: 1000px;
+  margin: 1em auto;
+}
+main .btn {
+  display: block;
+  margin: 1em auto;
+}
+main .btn.hidden {
+  display: none;
+}
+body {
+  margin: 0;
+}
+
+.articles-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+.articles-container .article {
+  flex-grow: 1;
+  width: 400px;
+  /* width: 90%; */
 }

@@ -7,19 +7,31 @@
     <title>Dover</title>
     <link rel="shortcut icon" href="/favicon.png" type="image/png">
     <link rel="icon" href="/favicon.png" type="image/png">
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="./article.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <main>
+    <main class="article-container">
+        <h1 class="article__title"></h1>
+        <div class="article__info">
+            <p class="article__date"></p>
+            <div class="article__tags"></div>
+        </div>
+        <div class="article__userinfo">
+            <img class="user__img"></img>
+            <p class="user__username"></p>
+        </div>
+        <p class="article__content"></p>
+        <div class="article__comments">
 
+        </div>
     </main>
     <script src="/scripts/jquery.js"></script>
     <script type="module" src="/scripts/base.js"></script>
-    <script type="module" src="./user.js"></script>
+    <script type="module" src="./article.js"></script>
 </body>
 
 </html>

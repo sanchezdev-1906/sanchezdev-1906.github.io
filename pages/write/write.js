@@ -67,6 +67,7 @@ $("form").on("submit",(e)=>{
   data.user = JSON.parse(localStorage.getItem("localuser")).username
   data.likes = 0
   data.datetime = new Date().toISOString()
+  data.comments = 0
 
   if (validForm) {
     let request = indexedDB.open("dover", 1)
@@ -123,13 +124,13 @@ $(editor).on("input",(e)=>{
   }
 })
 $(".button-bold").on("click",()=>{
-  var selectedText = getSelectedTextOrWord(editor);
-  var newText = '**' + selectedText + '**';
+  let selectedText = getSelectedTextOrWord(editor);
+  let newText = '**' + selectedText + '**';
   insertTextAtCursor(editor, newText);
 })
 $(".button-italic").on("click",()=>{
-  var selectedText = getSelectedTextOrWord(editor);
-  var newText = '*' + selectedText + '*';
+  let selectedText = getSelectedTextOrWord(editor);
+  let newText = '*' + selectedText + '*';
   insertTextAtCursor(editor, newText);
 })
 
@@ -154,16 +155,16 @@ $(document).on("keydown",(e)=>{
 }) */
 
 function getSelectedTextOrWord(textarea) {
-  var text = textarea.value;
-  var selectionStart = textarea.selectionStart;
-  var selectionEnd = textarea.selectionEnd;
+  let text = textarea.value;
+  let selectionStart = textarea.selectionStart;
+  let selectionEnd = textarea.selectionEnd;
 
   if (selectionStart !== selectionEnd) {
       return text.substring(selectionStart, selectionEnd);
   }
 
-  var startOfWord = text.lastIndexOf(' ', selectionStart - 1) + 1;
-  var endOfWord = text.indexOf(' ', selectionStart);
+  let startOfWord = text.lastIndexOf(' ', selectionStart - 1) + 1;
+  let endOfWord = text.indexOf(' ', selectionStart);
 
   startOfWord = startOfWord === -1 ? selectionStart : startOfWord;
   endOfWord = endOfWord === -1 ? selectionStart : endOfWord;
@@ -172,13 +173,13 @@ function getSelectedTextOrWord(textarea) {
 }
 
 function insertTextAtCursor(textarea, newText) {
-  var text = textarea.value;
-  var selectionStart = textarea.selectionStart;
-  var selectionEnd = textarea.selectionEnd;
+  let text = textarea.value;
+  let selectionStart = textarea.selectionStart;
+  let selectionEnd = textarea.selectionEnd;
 
-  var newTextLength = newText.length;
-  var newTextStart = text.substring(0, selectionStart) + newText;
-  var newTextEnd = text.substring(selectionEnd);
+  let newTextLength = newText.length;
+  let newTextStart = text.substring(0, selectionStart) + newText;
+  let newTextEnd = text.substring(selectionEnd);
 
   textarea.value = newTextStart + newTextEnd;
 

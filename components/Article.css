@@ -1,0 +1,61 @@
+.article {
+  border: 2px solid var(--storm);
+}
+
+.article .article__reactions button {
+  font-size: 16px;
+}
+.article .fa-heart.fa-solid {
+  color: var(--ruby);
+}
+.article button {
+  border: none;
+  background-color: transparent;
+}
+.article__info {
+  display: flex;
+  gap: 1rem;
+}
+.article .article__user,
+.article .article__img,
+.article .article__tags .tag,
+.article .article__title {
+  cursor: pointer;
+}
+
+.article__info,
+.article__tags,
+.article__reactions,
+.article__title {
+  padding: 0.5rem 1rem 0;
+}
+.article__reactions {
+  margin-bottom: 1rem;
+}
+.article img {
+  max-height: 400px;
+  width: 100%;
+  object-fit: cover;
+  transition: filter 0.2s;
+}
+.article:hover img {
+  filter: sepia(0.4);
+}
+
+.article__title {
+  font-weight: 600;
+}
+
+.article__tags {
+  display: flex;
+  gap: 1em;
+}
+.article__tags .tag {
+  color: var(--ruby);
+  font-weight: 500;
+}
+
+.article__user {
+  font-weight: 500;
+  color: var(--majorelle);
+}

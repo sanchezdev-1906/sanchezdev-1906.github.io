@@ -1,6 +1,5 @@
 @import url("/styles/base.css");
 @import url("/styles/variables.css");
-
 .editform {
   max-width: 80ch;
   width: 90%;

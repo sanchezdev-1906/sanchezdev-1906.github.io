@@ -1,3 +1,4 @@
+import { initial, DBData } from "/scripts/indexeddb.js";
 const login = document.getElementById("login")
 const sign = document.getElementById("sign")
 
@@ -23,12 +24,11 @@ $("form input").on("keydown",()=>{
     $("form .message").addClass("hidden")
 })
 
-$("#login").on("submit",(e)=>{
+login.addEventListener("submit",(e)=>{
     e.preventDefault()
     let user = {username: login.username.value || "", password: login.password.value || ""}
-
-    let request = indexedDB.open("dover", 1)
-    request.onsuccess = ()=>{
+    let request = indexedDB.open(DBData.name, DBData.version)
+    request.onsuccess = () =>{
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         let db = request.result
@@ -70,6 +70,7 @@ $("#sign").on("submit",(e)=>{
     e.preventDefault()
     let username = sign.username.value
     let email = sign.email.value
+    let alias = sign.alias.value
     let password = sign.password.value
     let confirm = sign.confirm.value
     
@@ -80,20 +81,20 @@ $("#sign").on("submit",(e)=>{
         return;
     }
 
-    let request = indexedDB.open("dover", 1)
-    request.onerror = function(event) {
-        console.log("Error al abrir la base de datos");
-      };
+    let request = indexedDB.open(DBData.name, DBData.version)
+    
     request.onsuccess = ()=>{
+        
         let db = request.result
         let transaction = db.transaction(["users"], "readwrite")
         let objectStorage = transaction.objectStore("users")
         let user = {
             username,
+            alias,
             email,
             password,
             description: "",
-            profile: undefined
+            img: undefined,
         }
         
         let req = objectStorage.add(user)
