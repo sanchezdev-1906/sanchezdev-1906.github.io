@@ -24,6 +24,6 @@ body {
 }
 .articles-container .article {
   flex-grow: 1;
-  width: 400px;
+  width: 300px;
   /* width: 90%; */
 }
